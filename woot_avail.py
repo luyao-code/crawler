@@ -1,5 +1,5 @@
 import requests
-from twilio import Twilio
+from ses import SimpleEmailService
 from dynamodb import DynamoDB
 from bs4 import BeautifulSoup
 
@@ -32,7 +32,7 @@ def check_availability():
 if __name__ == "__main__":
     # Initialize DynamoDB and Twilio client.
     db = DynamoDB()
-    twilio = Twilio()
+    ses = SimpleEmailService()
 
     # If the product is not in DynamoDB, add it.
     # The default availability is False.
@@ -44,8 +44,6 @@ if __name__ == "__main__":
     # Get available products.
     prod = check_availability()
 
-    # Build the message.
-    msg = ''
+    # Send the email.
     for name in prod:
-        msg += f"Woot.com: {name} is available now!\nLink: {PRODUCTS[name]}\n\n"
-    twilio.send_message(msg)
+        ses.send_email(prod, PRODUCTS[name])
