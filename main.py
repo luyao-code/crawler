@@ -25,7 +25,7 @@ def check_availability():
         except requests.RequestException as e:
             ses.send_email_for_error(e)
 
-def main():
+def main(event, context):
     # Initialize the DynamoDB and SimpleEmailService.
     global db, ses
     db = DynamoDB()
