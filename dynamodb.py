@@ -28,9 +28,3 @@ class DynamoDB:
         return self.table.get_item(Key = {
             'product': name
         })
-    
-if __name__ == '__main__':
-    db = DynamoDB('product_avail')
-    db.update('PS5', 'Test')
-    # product = db.get({'product': 'PS5'})
-    # print(product['Item']['avail'])
