@@ -1,7 +1,13 @@
 # A Simple AWS Serverless Application
 
 This python mini-program is a demo of AWS Serverless Application which tracks the availability of out-of-stock products on Woot. 
-If you are interested in a out-of-stock product on Woot and want to get notified when it's restocked, add its URL to the list. The program will check the html page every 15 mins and email you as soon as it's available.
+If you are interested in a out-of-stock product on Woot and want to get notified when it's restocked, add the URL to the list. The program will check the html page every 15 mins and email you as soon as it's available.
+This program integrates AWS products below:
+1. Lambda Function - Runs the application
+2. DynamoDB - Persists the product status
+3. SimpleEmailService - Notifies user when the product is available
+4. EventBridge - Triggers the application every 15 mins
+
 ### Install AWS CLI tool and configure AWS credentials.
   1. Login to AWS account, go to Security Credentials page and create a Access Key
   2. Open Mac Terminal, Install AWS CLI and Configure AWS credentials
