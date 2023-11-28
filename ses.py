@@ -3,8 +3,8 @@ import boto3
 class SimpleEmailService:
     def __init__(self):
         self.ses = boto3.client('ses')
-        self._from = 'lu.yao.us@gmail.com'
-        self.to = 'lu.yao@outlook.com'
+        self._from = 'xxx@gmail.com'
+        self.to = 'xxx@outlook.com'
         self.subject = 'Alert'
     
     def send_email_for_purchase(self, product, url):
